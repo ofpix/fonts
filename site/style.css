@@ -1,0 +1,33 @@
+
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--bg:#faf9f7;--ink:#1a1a1a;--mut:#888;--line:#e8e6e2;--accent:#b4532a;}
+body{background:var(--bg);color:var(--ink);font-family:'Noto Sans CJK TC','Noto Sans',system-ui,sans-serif;line-height:1.6;}
+.site-head{padding:48px 24px 24px;max-width:1440px;margin:0 auto;text-align:center;}
+.site-head h1{font-size:32px;letter-spacing:.04em;}
+.site-head h1 span{color:var(--accent);font-weight:400;font-size:22px;margin-left:8px;}
+.site-head p{color:var(--mut);font-size:13px;margin-top:8px;}
+.tabs{display:flex;justify-content:center;gap:8px;padding:16px 12px;position:sticky;top:0;background:rgba(250,249,247,.92);backdrop-filter:blur(6px);z-index:10;}
+.tab{border:1px solid var(--line);background:#fff;color:var(--ink);padding:10px 22px;border-radius:999px;cursor:pointer;font-size:15px;display:flex;align-items:baseline;gap:8px;transition:all .15s;}
+.tab small{color:var(--mut);font-size:11px;letter-spacing:.05em;}
+.tab:hover{border-color:#ccc;}
+.tab.active{background:var(--ink);color:#fff;border-color:var(--ink);}
+.tab.active small{color:#bbb;}
+main{max-width:1440px;margin:0 auto;padding:8px 24px 64px;}
+.panel{display:none;}
+.panel.active{display:block;}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;}
+.card-head{display:flex;justify-content:space-between;align-items:flex-start;padding:16px 18px 12px;gap:12px;}
+.fname{font-size:17px;letter-spacing:.02em;}
+.fsub{font-size:12px;color:var(--mut);margin-top:2px;}
+.fdesc{font-size:13px;color:#555;line-height:1.7;padding:0 18px 14px;}
+.fmeta{font-size:11px;color:#bbb;white-space:nowrap;padding-top:4px;}
+.swiper{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:thin;background:#f4f2ef;}
+.swiper::-webkit-scrollbar{height:6px;}
+.swiper::-webkit-scrollbar-thumb{background:#d8d4ce;border-radius:3px;}
+.slide{flex:0 0 100%;width:100%;height:auto;scroll-snap-align:start;display:block;}
+.card-foot{font-size:11px;color:#ccc;text-align:center;padding:8px;letter-spacing:.08em;}
+.site-foot{text-align:center;color:#bbb;font-size:12px;padding:32px 0 48px;}
+
+@media (max-width:1024px){.grid{grid-template-columns:1fr;}}
+@media (max-width:480px){.site-head h1{font-size:24px;}main{padding:8px 12px 48px;}}
