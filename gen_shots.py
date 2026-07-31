@@ -118,8 +118,9 @@ def render(f, kind, t):
   <div class="disp">
     <h1 style="font-family:{fam};font-weight:700;">{html.escape(t['h1'])}</h1>
     <h2 style="font-family:{fam};font-weight:500;">{html.escape(t['h2'])}</h2>
+    <p style="font-family:{fam};font-weight:400;">{html.escape(t['body'])}</p>
   </div>
-  <div class="foot">Display 樣張 · タイトル見本 · Heading specimen — H1 700 / H2 500</div>
+  <div class="foot">Display 樣張 · タイトル見本 · Heading specimen — H1 700 / H2 500 / Body 400</div>
 </div>"""
     elif kind == "body":
         body = f"""
@@ -128,6 +129,7 @@ def render(f, kind, t):
   <div class="bd">
     <h2 style="font-family:{fam};font-weight:600;">{html.escape(t['h2'])}</h2>
     <p style="font-family:{fam};font-weight:400;">{html.escape(t['body'])}</p>
+    <p class="second" style="font-family:{fam};font-weight:400;">{html.escape(t['body'])}</p>
   </div>
   <div class="foot">Body 正文 · 本文 16px / 行高 1.8</div>
 </div>"""
@@ -139,6 +141,7 @@ def render(f, kind, t):
 <div class="frame">
   <div class="tag">{name} <span>· {sub}</span></div>
   <div class="ws">{''.join(rows)}</div>
+  <p class="wpar" style="font-family:{fam};font-weight:400;">{html.escape(t['body'])}</p>
   <div class="foot">Weights 字重 · ウェイト比較</div>
 </div>"""
     return f"""<!DOCTYPE html><html><head><meta charset="utf-8"><style>
@@ -147,16 +150,19 @@ body{{background:#faf9f7;color:#1a1a1a;font-family:'Noto Sans CJK TC',sans-serif
 .frame{{width:900px;height:640px;padding:40px 48px;display:flex;flex-direction:column;background:#fff;border:1px solid #eee;}}
 .tag{{font-size:13px;letter-spacing:.08em;color:#888;margin-bottom:8px;}}
 .tag span{{color:#bbb;}}
-.disp{{flex:1;display:flex;flex-direction:column;justify-content:center;gap:28px;}}
-.disp h1{{font-size:56px;line-height:1.25;letter-spacing:.02em;}}
-.disp h2{{font-size:24px;line-height:1.6;color:#555;font-weight:500;}}
-.bd{{flex:1;display:flex;flex-direction:column;justify-content:center;gap:24px;}}
-.bd h2{{font-size:26px;line-height:1.5;}}
-.bd p{{font-size:16px;line-height:1.8;color:#444;max-width:780px;}}
-.ws{{flex:1;display:flex;flex-direction:column;justify-content:center;gap:14px;}}
+.disp{{flex:1;display:flex;flex-direction:column;justify-content:center;gap:24px;}}
+.disp h1{{font-size:60px;line-height:1.2;letter-spacing:.02em;}}
+.disp h2{{font-size:30px;line-height:1.5;color:#555;font-weight:500;}}
+.disp p{{font-size:20px;line-height:1.8;color:#777;max-width:760px;}}
+.bd{{flex:1;display:flex;flex-direction:column;justify-content:center;gap:22px;}}
+.bd h2{{font-size:34px;line-height:1.45;}}
+.bd p{{font-size:22px;line-height:1.75;color:#444;max-width:780px;}}
+.bd p.second{{color:#999;}}
+.ws{{flex:1;display:flex;flex-direction:column;justify-content:center;gap:12px;}}
 .wrow{{display:flex;align-items:baseline;gap:24px;}}
-.wlabel{{flex:0 0 120px;font-size:12px;color:#999;letter-spacing:.05em;}}
-.wtext{{font-size:26px;line-height:1.4;}}
+.wlabel{{flex:0 0 120px;font-size:14px;color:#999;letter-spacing:.05em;}}
+.wtext{{font-size:34px;line-height:1.4;}}
+.wpar{{font-size:18px;line-height:1.7;color:#bbb;margin-top:12px;max-width:780px;}}
 .foot{{font-size:11px;color:#ccc;letter-spacing:.12em;margin-top:16px;}}
 </style></head><body>
 {body}
